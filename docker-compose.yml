@@ -3,7 +3,7 @@ version: '2'
 services:
 
   mumble_server:
-#     image: ernestgwilsonii/docker-raspberry-pi-mumble-server:1.3.4
+    image: ernestgwilsonii/docker-raspberry-pi-mumble-server:1.3.4
     hostname: mumble-server
     ports:
       - "64738:64738/udp"
