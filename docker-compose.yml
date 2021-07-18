@@ -28,11 +28,11 @@ services:
       - type: bind
         source: /opt/mumble-server/logs
         target: /var/log/mumble-server
-    deploy:
-      labels:
-        local.description: "mumble-server"
-      restart_policy:
-        condition: on-failure
+    privileged: true
+    restart: always
+    network_mode: "host"
+    labels:
+            io.balena.features.kernel-modules: '1'
 
 networks:
   mumble-net1:
