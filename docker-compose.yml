@@ -8,13 +8,13 @@ services:
     ports:
       # Mumble Control TCP 64738
       - mode: host
-        target: 64738
-        published: 64738
+        target: "64738"
+        published: "64738"
         protocol: tcp
       # Mumble Audio UDP 64738
       - mode: host
-        target: 64738
-        published: 64738
+        target: "64738"
+        published: "64738"
         protocol: udp
     networks:
       - mumble-net1
