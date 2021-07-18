@@ -1,5 +1,25 @@
 version: '2'
 
+volumes:
+  volume_1:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/mumble-server/mumble-server.ini
+  volume_2:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/mumble-server
+  volume_3:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/mumble-server/logs
+
 services:
 
   mumble_server:
@@ -11,9 +31,9 @@ services:
     networks:
       - mumble-net1
     volumes:
-      - "/opt/mumble-server/mumble-server.ini:/etc/mumble-server.ini"
-      - "/opt/mumble-server:/var/lib/mumble-server"             
-      - "/opt/mumble-server/logs:/var/log/mumble-server"
+      - "volume_1:/etc/mumble-server.ini"
+      - "volume_2:/var/lib/mumble-server"             
+      - "volume_3:/var/log/mumble-server"
     privileged: true
     restart: always
     network_mode: "host"
