@@ -11,15 +11,9 @@ services:
     networks:
       - mumble-net1
     volumes:
-      - type: bind
-        source: /opt/mumble-server/mumble-server.ini
-        target: /etc/mumble-server.ini
-      - type: bind
-        source: /opt/mumble-server
-        target: /var/lib/mumble-server              
-      - type: bind
-        source: /opt/mumble-server/logs
-        target: /var/log/mumble-server
+      - "/opt/mumble-server/mumble-server.ini:/etc/mumble-server.ini"
+      - "/opt/mumble-server:/var/lib/mumble-server"             
+      - "/opt/mumble-server/logs:/var/log/mumble-server"
     privileged: true
     restart: always
     network_mode: "host"
